@@ -4,11 +4,10 @@ import Card from "react-bootstrap/Card";
 import "./Restaurant.css";
 import { Link } from "react-router-dom";
 import { getData } from "./actions/restAction";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
 function Restaurant() {
-  const [restaurantList, setRestaurantList] = useState([]);
 
   const dispatch = useDispatch()
 
@@ -16,6 +15,9 @@ function Restaurant() {
     dispatch(getData)
   }, []);
 
+  const {restaurantList} = useSelector(state=>state.reducer1)
+  console.log(restaurantList);
+  
   return (
     <>
       <h2 className="mt-3" style={{ textAlign: "center" }}>
